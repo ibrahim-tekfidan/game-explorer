@@ -10,17 +10,13 @@ const App = () => {
         base: `"nav" "main"`,
       }}
     >
-      <GridItem backgroundColor={'blue'} area={'nav'}>
+      <GridItem area={'nav'}>
         <NavBar />
       </GridItem>
       <Show above="lg">
-        <GridItem backgroundColor={'gold'} area={'aside'}>
-          Aside
-        </GridItem>
+        <GridItem area={'aside'}>Aside</GridItem>
       </Show>
-      <GridItem backgroundColor={'red'} area={'main'}>
-        Main
-      </GridItem>
+      <GridItem area={'main'}>Main</GridItem>
     </Grid>
   );
 };
