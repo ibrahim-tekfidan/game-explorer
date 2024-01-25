@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import apiClient from '../services/api-client';
+import apiClient, { FetchResponse } from '../services/api-client';
 
 export interface Platform {
   id: number;
@@ -15,15 +15,11 @@ export interface Game {
   metacritic: number;
 }
 
-export interface FetchResponse {
-  count: number;
-  results: Game[];
-}
-
 const useGames = () =>
-  useQuery<FetchResponse, Error>({
+  useQuery<FetchResponse<Game>, Error>({
     queryKey: ['games'],
-    queryFn: () => apiClient.get<FetchResponse>('/games').then(res => res.data),
+    queryFn: () =>
+      apiClient.get<FetchResponse<Game>>('/games').then(res => res.data),
     staleTime: 24 * 60 * 60 * 1000,
   });
 export default useGames;
