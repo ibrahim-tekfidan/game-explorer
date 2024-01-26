@@ -22,7 +22,11 @@ const SortSelector = ({ onGameQuery }: Props) => {
       </MenuButton>
       <MenuList>
         {sortOrders.map(order => (
-          <MenuItem key={order.value} onClick={() => onGameQuery(order.value)}>
+          <MenuItem
+            fontSize={'lg'}
+            key={order.value}
+            onClick={() => onGameQuery(order.value)}
+          >
             {order.label}
           </MenuItem>
         ))}

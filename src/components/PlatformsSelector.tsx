@@ -22,7 +22,11 @@ const PlatformsSelector = ({ selectedPlatformId, onGameQuery }: Props) => {
       </MenuButton>
       <MenuList>
         {platforms?.results.map(platform => (
-          <MenuItem onClick={() => onGameQuery(platform.id)} key={platform.id}>
+          <MenuItem
+            fontSize={'lg'}
+            onClick={() => onGameQuery(platform.id)}
+            key={platform.id}
+          >
             {platform.name}
           </MenuItem>
         ))}
