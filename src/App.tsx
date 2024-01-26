@@ -59,6 +59,7 @@ const App = () => {
           />
           <SortSelector
             onGameQuery={ordering => setGameQuery({ ...gameQuery, ordering })}
+            selectedSortValue={gameQuery.ordering}
           />
         </HStack>
         <GameGrid gameQuery={gameQuery} />
