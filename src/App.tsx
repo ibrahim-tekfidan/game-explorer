@@ -21,6 +21,12 @@ const App = () => {
 
   return (
     <Grid
+      paddingY={{
+        base: 1,
+        sm: 3,
+        lg: 5,
+      }}
+      paddingX={{ base: 2, sm: 5, lg: 7 }}
       templateAreas={{
         lg: `"nav nav" "aside main"`,
         base: `"nav" "main"`,
@@ -36,14 +42,14 @@ const App = () => {
         />
       </GridItem>
       <Show above="lg">
-        <GridItem marginTop={8} paddingX={4} area={'aside'}>
+        <GridItem marginTop={8} area={'aside'}>
           <GenreList
             onGameQuery={genreId => setGameQuery({ ...gameQuery, genreId })}
             selectedGenreId={gameQuery.genreId}
           />
         </GridItem>
       </Show>
-      <GridItem area={'main'} paddingX={6}>
+      <GridItem area={'main'}>
         <GameHeading
           genreId={gameQuery.genreId}
           platformId={gameQuery.platformId}

@@ -9,8 +9,8 @@ interface Props {
 
 const NavBar = ({ onGameQuery }: Props) => {
   return (
-    <HStack padding={2} justifyContent={'space-between'}>
-      <Image boxSize="64px" src={logo} />
+    <HStack justifyContent={'space-between'}>
+      <Image boxSize={{ base: '48px', lg: '64px' }} src={logo} />
       <SearchInput onGameQuery={onGameQuery} />
       <ColorModeSwitch />
     </HStack>
