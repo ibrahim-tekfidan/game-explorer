@@ -20,7 +20,7 @@ const SortSelector = ({ onGameQuery, selectedSortValue }: Props) => {
 
   return (
     <Menu>
-      <MenuButton as={Button} rightIcon={<BsChevronDown />}>
+      <MenuButton textAlign={'left'} as={Button} rightIcon={<BsChevronDown />}>
         Order by: {selectedSort ? selectedSort.label : ''}
       </MenuButton>
       <MenuList>

@@ -17,7 +17,7 @@ const PlatformsSelector = ({ selectedPlatformId, onGameQuery }: Props) => {
 
   return (
     <Menu>
-      <MenuButton as={Button} rightIcon={<BsChevronDown />}>
+      <MenuButton textAlign={'left'} as={Button} rightIcon={<BsChevronDown />}>
         {selectedPlatform ? selectedPlatform.name : 'Platforms'}
       </MenuButton>
       <MenuList>
