@@ -40,6 +40,7 @@ const App = () => {
           onGameQuery={platformId => setGameQuery({ ...gameQuery, platformId })}
           selectedPlatformId={gameQuery.platformId}
         />
+
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
     </Grid>
