@@ -4,8 +4,12 @@ import GameCard from './GameCard';
 import GameSkeleton from './GameCardSkeleton';
 import GameCardContainer from './GameCardContainer';
 
-const GameGrid = () => {
-  const { data: games, error, isLoading } = useGames();
+interface Props {
+  selectedGenreId?: number;
+}
+
+const GameGrid = ({ selectedGenreId }: Props) => {
+  const { data: games, error, isLoading } = useGames(selectedGenreId);
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
 
   if (error) return <Text>{error.message}</Text>;
