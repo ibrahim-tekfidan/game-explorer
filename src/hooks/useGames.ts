@@ -21,6 +21,7 @@ export interface Game {
 interface GameQuery {
   genreId?: number;
   platformId?: number;
+  ordering?: string;
 }
 
 const useGames = (gameQuery: GameQuery) =>
@@ -31,6 +32,7 @@ const useGames = (gameQuery: GameQuery) =>
         params: {
           genres: gameQuery.genreId,
           parent_platforms: gameQuery.platformId,
+          ordering: gameQuery.ordering,
         },
       }),
     staleTime: 24 * 60 * 60 * 1000,
