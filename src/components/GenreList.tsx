@@ -8,6 +8,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import useGenres from '../hooks/useGenres';
+import getCroppedImageUrl from '../services/img-url';
 
 const GenreList = () => {
   const { data: genres, error, isLoading } = useGenres();
@@ -25,7 +26,7 @@ const GenreList = () => {
               objectFit={'cover'}
               borderRadius={8}
               boxSize={10}
-              src={genre.image_background}
+              src={getCroppedImageUrl(genre.image_background)}
             />
             <Text fontSize={'lg'}>{genre.name}</Text>
           </HStack>
