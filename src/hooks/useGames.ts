@@ -20,7 +20,7 @@ export interface Game {
 
 const useGames = (selectedGenreId?: number) =>
   useQuery<FetchResponse<Game>, Error>({
-    queryKey: ['games', selectedGenreId],
+    queryKey: selectedGenreId ? ['games', selectedGenreId] : ['games'],
     queryFn: () =>
       apiClient.getAll({
         params: {
