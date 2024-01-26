@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const App = () => {
   const [selectedGenreId, setSelectedGenreId] = useState<number>();
-
+  const [selectedPlatformId, setSelectedPlatformId] = useState<number>();
   return (
     <Grid
       templateAreas={{
@@ -30,7 +30,11 @@ const App = () => {
         </GridItem>
       </Show>
       <GridItem area={'main'}>
-        <GameGrid selectedGenreId={selectedGenreId} />
+        <GameGrid
+          onSelectedPlatformId={setSelectedPlatformId}
+          selectedGenreId={selectedGenreId}
+          selectedPlatformId={selectedPlatformId}
+        />
       </GridItem>
     </Grid>
   );

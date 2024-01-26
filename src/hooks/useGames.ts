@@ -18,13 +18,17 @@ export interface Game {
   metacritic: number;
 }
 
-const useGames = (selectedGenreId?: number) =>
+const useGames = (selectedGenreId?: number, selectedPlatformId?: number) =>
   useQuery<FetchResponse<Game>, Error>({
-    queryKey: selectedGenreId ? ['games', selectedGenreId] : ['games'],
+    queryKey:
+      selectedGenreId || selectedPlatformId
+        ? ['games', selectedGenreId, selectedPlatformId]
+        : ['games'],
     queryFn: () =>
       apiClient.getAll({
         params: {
           genres: selectedGenreId,
+          parent_platforms: selectedPlatformId,
         },
       }),
     staleTime: 24 * 60 * 60 * 1000,
