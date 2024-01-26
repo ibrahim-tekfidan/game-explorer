@@ -22,6 +22,7 @@ interface GameQuery {
   genreId?: number;
   platformId?: number;
   ordering?: string;
+  search?: string;
 }
 
 const useGames = (gameQuery: GameQuery) =>
@@ -33,6 +34,7 @@ const useGames = (gameQuery: GameQuery) =>
           genres: gameQuery.genreId,
           parent_platforms: gameQuery.platformId,
           ordering: gameQuery.ordering,
+          search: gameQuery.search,
         },
       }),
     staleTime: 24 * 60 * 60 * 1000,

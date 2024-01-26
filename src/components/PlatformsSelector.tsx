@@ -13,6 +13,8 @@ const PlatformsSelector = ({ selectedPlatformId, onGameQuery }: Props) => {
     platform => platform.id === selectedPlatformId
   );
 
+  if (error) return null;
+
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
