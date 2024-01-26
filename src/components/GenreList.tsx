@@ -6,6 +6,7 @@ import {
   Spinner,
   HStack,
   Button,
+  Heading,
 } from '@chakra-ui/react';
 import useGenres from '../hooks/useGenres';
 import getCroppedImageUrl from '../services/img-url';
@@ -23,28 +24,35 @@ const GenreList = ({ onGameQuery, selectedGenreId }: Props) => {
   if (isLoading) return <Spinner />;
 
   return (
-    <List display={'flex'} flexDirection={'column'} spacing={2}>
-      {genres?.results.map(genre => (
-        <ListItem key={genre.id}>
-          <HStack>
-            <Image
-              objectFit={'cover'}
-              borderRadius={8}
-              boxSize={10}
-              src={getCroppedImageUrl(genre.image_background)}
-            />
-            <Button
-              onClick={() => onGameQuery(genre.id)}
-              fontSize={'lg'}
-              variant={'link'}
-              fontWeight={selectedGenreId === genre.id ? 'bold' : 'normal'}
-            >
-              {genre.name}
-            </Button>
-          </HStack>
-        </ListItem>
-      ))}
-    </List>
+    <>
+      <Heading fontSize={'4xl'} marginBottom={6} marginTop={12}>
+        Genres
+      </Heading>
+      <List display={'flex'} flexDirection={'column'} spacing={2}>
+        {genres?.results.map(genre => (
+          <ListItem key={genre.id}>
+            <HStack>
+              <Image
+                objectFit={'cover'}
+                borderRadius={8}
+                boxSize={10}
+                src={getCroppedImageUrl(genre.image_background)}
+              />
+              <Button
+                whiteSpace={'normal'}
+                textAlign={'left'}
+                onClick={() => onGameQuery(genre.id)}
+                fontSize={'xl'}
+                variant={'link'}
+                fontWeight={selectedGenreId === genre.id ? 'bold' : 'normal'}
+              >
+                {genre.name}
+              </Button>
+            </HStack>
+          </ListItem>
+        ))}
+      </List>
+    </>
   );
 };
 
