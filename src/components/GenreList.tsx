@@ -1,4 +1,12 @@
-import { List, ListItem, Spinner } from '@chakra-ui/react';
+import {
+  List,
+  Text,
+  Image,
+  ListItem,
+  Spinner,
+  HStack,
+  VStack,
+} from '@chakra-ui/react';
 import useGenres from '../hooks/useGenres';
 
 const GenreList = () => {
@@ -9,9 +17,19 @@ const GenreList = () => {
   if (isLoading) return <Spinner />;
 
   return (
-    <List>
+    <List display={'flex'} flexDirection={'column'} spacing={2}>
       {genres?.results.map(genre => (
-        <ListItem key={genre.id}>{genre.name}</ListItem>
+        <ListItem key={genre.id}>
+          <HStack>
+            <Image
+              objectFit={'cover'}
+              borderRadius={8}
+              boxSize={10}
+              src={genre.image_background}
+            />
+            <Text fontSize={'lg'}>{genre.name}</Text>
+          </HStack>
+        </ListItem>
       ))}
     </List>
   );
