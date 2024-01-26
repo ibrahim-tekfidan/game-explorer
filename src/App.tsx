@@ -25,6 +25,7 @@ const App = () => {
         <GridItem paddingX={2} area={'aside'}>
           <GenreList
             onSelectedGenreId={genreId => setSelectedGenreId(genreId)}
+            selectedGenreId={selectedGenreId}
           />
         </GridItem>
       </Show>
