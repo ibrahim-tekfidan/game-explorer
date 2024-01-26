@@ -25,7 +25,7 @@ const GenreList = ({ onGameQuery, selectedGenreId }: Props) => {
 
   return (
     <>
-      <Heading fontSize={'4xl'} marginBottom={6}>
+      <Heading fontSize={'3xl'} marginBottom={6}>
         Genres
       </Heading>
       <List display={'flex'} flexDirection={'column'} spacing={2}>

@@ -19,7 +19,10 @@ const GameHeading = ({ genreId, platformId }: Props) => {
   } Games`;
 
   return (
-    <Heading marginY={4} fontSize={'6xl'}>
+    <Heading
+      marginY={4}
+      fontSize={{ base: 'xl', sm: '2xl', md: '3xl', lg: '5xl' }}
+    >
       {heading}
     </Heading>
   );
