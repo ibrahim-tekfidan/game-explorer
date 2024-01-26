@@ -3,6 +3,7 @@ import GameGrid from './components/GameGrid';
 import NavBar from './components/NavBar';
 import GenreList from './components/GenreList';
 import { useState } from 'react';
+import PlatformsSelector from './components/PlatformsSelector';
 
 export interface GameQuery {
   genreId?: number;
@@ -35,10 +36,11 @@ const App = () => {
         </GridItem>
       </Show>
       <GridItem area={'main'}>
-        <GameGrid
+        <PlatformsSelector
           onGameQuery={platformId => setGameQuery({ ...gameQuery, platformId })}
-          gameQuery={gameQuery}
+          selectedPlatformId={gameQuery.platformId}
         />
+        <GameGrid gameQuery={gameQuery} />
       </GridItem>
     </Grid>
   );
