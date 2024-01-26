@@ -4,23 +4,15 @@ import GameCard from './GameCard';
 import GameSkeleton from './GameCardSkeleton';
 import GameCardContainer from './GameCardContainer';
 import PlatformsSelector from './PlatformsSelector';
+import { GameQuery } from '../App';
 
 interface Props {
-  selectedGenreId?: number;
-  selectedPlatformId?: number;
-  onSelectedPlatformId: (platformId: number) => void;
+  gameQuery: GameQuery;
+  onGameQuery: (platformId: number) => void;
 }
 
-const GameGrid = ({
-  selectedGenreId,
-  selectedPlatformId,
-  onSelectedPlatformId,
-}: Props) => {
-  const {
-    data: games,
-    error,
-    isLoading,
-  } = useGames(selectedGenreId, selectedPlatformId);
+const GameGrid = ({ gameQuery, onGameQuery }: Props) => {
+  const { data: games, error, isLoading } = useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
 
   if (error) return <Text>{error.message}</Text>;
@@ -28,8 +20,8 @@ const GameGrid = ({
   return (
     <Box paddingX={6}>
       <PlatformsSelector
-        selectedPlatformId={selectedPlatformId}
-        onSelectedPlatformId={onSelectedPlatformId}
+        selectedPlatformId={gameQuery.platformId}
+        onGameQuery={onGameQuery}
       />
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}

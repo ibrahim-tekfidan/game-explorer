@@ -4,9 +4,14 @@ import NavBar from './components/NavBar';
 import GenreList from './components/GenreList';
 import { useState } from 'react';
 
+export interface GameQuery {
+  genreId?: number;
+  platformId?: number;
+}
+
 const App = () => {
-  const [selectedGenreId, setSelectedGenreId] = useState<number>();
-  const [selectedPlatformId, setSelectedPlatformId] = useState<number>();
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
+
   return (
     <Grid
       templateAreas={{
@@ -24,16 +29,15 @@ const App = () => {
       <Show above="lg">
         <GridItem paddingX={2} area={'aside'}>
           <GenreList
-            onSelectedGenreId={genreId => setSelectedGenreId(genreId)}
-            selectedGenreId={selectedGenreId}
+            onGameQuery={genreId => setGameQuery({ ...gameQuery, genreId })}
+            selectedGenreId={gameQuery.genreId}
           />
         </GridItem>
       </Show>
       <GridItem area={'main'}>
         <GameGrid
-          onSelectedPlatformId={setSelectedPlatformId}
-          selectedGenreId={selectedGenreId}
-          selectedPlatformId={selectedPlatformId}
+          onGameQuery={platformId => setGameQuery({ ...gameQuery, platformId })}
+          gameQuery={gameQuery}
         />
       </GridItem>
     </Grid>

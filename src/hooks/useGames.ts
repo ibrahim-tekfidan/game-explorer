@@ -18,17 +18,19 @@ export interface Game {
   metacritic: number;
 }
 
-const useGames = (selectedGenreId?: number, selectedPlatformId?: number) =>
+interface GameQuery {
+  genreId?: number;
+  platformId?: number;
+}
+
+const useGames = (gameQuery: GameQuery) =>
   useQuery<FetchResponse<Game>, Error>({
-    queryKey:
-      selectedGenreId || selectedPlatformId
-        ? ['games', selectedGenreId, selectedPlatformId]
-        : ['games'],
+    queryKey: gameQuery ? ['games', gameQuery] : ['games'],
     queryFn: () =>
       apiClient.getAll({
         params: {
-          genres: selectedGenreId,
-          parent_platforms: selectedPlatformId,
+          genres: gameQuery.genreId,
+          parent_platforms: gameQuery.platformId,
         },
       }),
     staleTime: 24 * 60 * 60 * 1000,
