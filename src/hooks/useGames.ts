@@ -2,6 +2,7 @@ import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
 import { FetchResponse } from '../services/api-client';
 import APIClient from '../services/api-client';
 import ms from 'ms';
+import { GameQuery } from '../store';
 
 const apiClient = new APIClient<Game>('/games');
 
@@ -17,13 +18,6 @@ export interface Game {
   background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
-}
-
-interface GameQuery {
-  genreId?: number;
-  platformId?: number;
-  ordering?: string;
-  search?: string;
 }
 
 const useGames = (gameQuery: GameQuery) =>
