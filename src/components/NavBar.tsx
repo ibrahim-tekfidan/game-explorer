@@ -5,7 +5,7 @@ import SearchInput from './SearchInput';
 
 const NavBar = () => {
   return (
-    <HStack justifyContent={'space-between'}>
+    <HStack as={'header'} justifyContent={'space-between'}>
       <Image boxSize={{ base: '48px', lg: '64px' }} src={logo} />
       <SearchInput />
       <ColorModeSwitch />
