@@ -6,7 +6,7 @@ import {
   Image,
   VStack,
 } from '@chakra-ui/react';
-import { Game } from '../hooks/useGames';
+import { Game } from '../entities/Game';
 import PlatformIconList from './PlatformIconLists';
 import CriticScore from './CriticScore';
 import getCroppedImageUrl from '../services/img-url';

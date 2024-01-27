@@ -1,5 +1,4 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import { Game } from '../hooks/useGames';
 
 export interface FetchResponse<T> {
   count: number;
