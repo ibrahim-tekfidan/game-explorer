@@ -9,6 +9,7 @@ const NavBar = () => {
     <HStack as={'header'} justifyContent={'space-between'}>
       <Link to="/">
         <Image
+          alt={'Logo'}
           objectFit={'cover'}
           boxSize={{ base: '48px', lg: '64px' }}
           src={logo}
