@@ -13,8 +13,6 @@ const GameTrailer = ({ gameId }: Props) => {
 
   const first = trailers?.results[0];
 
-  console.log(trailers?.results);
-
   return first ? (
     <video src={first?.data['480']} poster={first?.preview} controls autoPlay />
   ) : null;
