@@ -16,12 +16,15 @@ const ExpendableText = ({ children }: Props) => {
   const summary = expended ? children : children.substring(0, limit) + '...';
 
   return (
-    <Text fontSize={'18px'} lineHeight={'1.6'}>
+    <Text
+      fontSize={{ base: '14px', md: '18px' }}
+      lineHeight={{ base: '1.4', md: '1.6' }}
+    >
       {summary}
       <Button
-        size={'sm'}
+        size={{ base: 'xs', md: 'sm' }}
         colorScheme="yellow"
-        marginLeft={2}
+        marginLeft={1}
         onClick={() => setExpended(!expended)}
       >
         {expended ? 'Show less' : 'Read more'}
