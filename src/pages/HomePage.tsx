@@ -5,6 +5,7 @@ import GenreList from '../components/GenreList';
 import NavBar from '../components/NavBar';
 import PlatformsSelector from '../components/PlatformsSelector';
 import SortSelector from '../components/SortSelector';
+import ResetFilters from '../components/ResetFilters';
 
 const HomePage = () => {
   return (
@@ -33,6 +34,7 @@ const HomePage = () => {
         >
           <PlatformsSelector />
           <SortSelector />
+          <ResetFilters />
         </Stack>
         <GameGrid />
       </GridItem>
