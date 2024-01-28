@@ -31,6 +31,7 @@ const GenreList = () => {
           <ListItem key={genre.id}>
             <HStack>
               <Image
+                alt={genre.name + ' image'}
                 objectFit={'cover'}
                 borderRadius={8}
                 boxSize={10}

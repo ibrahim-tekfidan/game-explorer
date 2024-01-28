@@ -1,13 +1,13 @@
-import React from 'react';
+import { Image, SimpleGrid } from '@chakra-ui/react';
 import useScreenShots from '../hooks/useScreenShots';
-import { SimpleGrid, Image } from '@chakra-ui/react';
+import { Game } from '../entities/Game';
 
 interface Props {
-  gameId: number;
+  game: Game;
 }
 
-const GameScreenShots = ({ gameId }: Props) => {
-  const { data: screentShots, error, isLoading } = useScreenShots(gameId);
+const GameScreenShots = ({ game }: Props) => {
+  const { data: screentShots, error, isLoading } = useScreenShots(game.id);
 
   if (isLoading) return null;
 
@@ -16,7 +16,11 @@ const GameScreenShots = ({ gameId }: Props) => {
   return (
     <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 1, md: 2 }}>
       {screentShots?.results.map(screentShoot => (
-        <Image src={screentShoot.image} key={screentShoot.id} />
+        <Image
+          src={screentShoot.image}
+          alt={game.name + ' image'}
+          key={screentShoot.id}
+        />
       ))}
     </SimpleGrid>
   );
